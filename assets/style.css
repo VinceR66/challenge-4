@@ -9,3 +9,17 @@ header {
     margin: auto;
     padding-top: 25px;
 }
+
+#timer {
+    color: blue;
+}
+
+.timeClock {
+    color: red;
+}
+
+.start {
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
