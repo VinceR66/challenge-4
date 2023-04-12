@@ -27,3 +27,16 @@ header {
 #containerHigh {
     text-align: left;
 }
+
+#question-text {
+    text-align: center;
+    font-size: 24px;
+    color: blue;
+}
+
+#choices-container {
+    text-align: center;
+    padding: 20px;
+
+
+}
