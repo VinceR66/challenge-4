@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge Coding Quiz</title>
+    <title>Challenge 4 - Coding Quiz</title>
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
@@ -17,7 +17,7 @@
 
     </header>
 
-    <div id="containerFirst" class="show">
+    <div id="containerStart" class="show">
         <div class="start">
             <h1>Quiz</h1>
             <p>
@@ -27,10 +27,30 @@
         </div>
     </div>
 
-    <!--
-    <div id="containerHigh" class="hide">
-        <div>
-            <h4 class="highScores">High Score</h4>
+    <div id="containerQuestion" class="hide">
+        <div class="container question">
+            <div id="question"></div>
+            <div id="buttonAnswers"></div>
+        </div>
+    </div>
+
+    <div id="containerEnd" class="hide">
+        <div class="container end">
+            <div id="scoreResult">
+                <h4>All Done!</h4>
+            </div>
+            <form id="initialsForm" class="initials">
+                <p> Enter Initials:
+                    <input type="test" name="initials" id="initials" class="text-input" />
+                    <button class="btn startend" id="submit-score" type="submit">Submit</button>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <div id="containerHighScore" class="hide">
+        <div class="container high score">
+            <h4 class="highScore">High Score</h4>
             <ol id="list" class="scoreList"></ol>
         </div>
         <div>
@@ -39,11 +59,13 @@
         </div>
     </div>
 
--->
-    <div id="container-question">
-        <div id="question-text"></div>
-        <div id="choices-container"></div>
+    <div class="hide" id="correct">
+        <h4>You are Right!</h4>
     </div>
+    <div class="hide" id="wrong">
+        <h4>Incorrect</h4>
+    </div>
+
 
     <script src="./assets/script.js"></script>
 

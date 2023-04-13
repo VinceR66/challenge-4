@@ -5,7 +5,7 @@
 header {
     display: flex;
     justify-content: space-between;
-    width: 75%;
+    width: 85%;
     margin: auto;
     padding-top: 25px;
     padding-bottom: 50px;
@@ -19,38 +19,48 @@ header {
     color: red;
 }
 
+#containerStart {
+    background-color: orange;
+
+}
+
 .start {
     text-align: center;
     margin-left: 25%;
     margin-right: 25%;
 }
 
-#containerFirst {
-    background-color: orange;
-
+#containerQuestion {
+    width: 100%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
-
-#containerHigh {
-    text-align: left;
-}
-
-#question-text {
+#question {
 
     font-size: 18px;
     color: blue;
 }
 
+/* #containerEnd  here */
+
+#containerHighScore {
+    text-align: left;
+}
+
+.show {
+    display: flex;
+}
+
+.hide {
+    display: none;
+}
+
+/*
 #choices-container button {
     margin: 10px;
     padding-left: 15px;
     padding-right: 15px;
     text-align: center;
 }
-
-
-#container-question {
-    width: 100%;
-    margin-left: 25%;
-    margin-right: 25%;
-}
+*/

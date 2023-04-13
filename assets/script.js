@@ -1,12 +1,25 @@
 
-document.querySelector("#gameStart");
-document.addEventListener("click", function () {
-    document.body.style.backgroundColor = "yellow";
-    const element = document.getElementById("containerFirst");
-    element.remove();
-    start();
-    main();
-});
+var startGame = document.querySelector("#gameStart");
+startGame.addEventListener('click', start)
+
+function start() {
+    document.getElementById("containerStart").classList.add("hide");
+    document.getElementById("containerStart").classList.remove("show");
+    document.getElementById("containerQuestion").classList.remove("hide");
+    document.getElementById("containerQuestion").classList.add("show");
+    questionsShuffled = questionsList.sort(() => Math.random() - .05)
+
+
+    timer()
+}
+
+var questionsShuffled
+
+function questionSelect() {
+    answerReset()
+    questionDisplay(questionsList[QuestionIndex])
+
+}
 
 var timerEl = document.querySelector("#timer");
 var secondsLeft = 10;
@@ -15,7 +28,7 @@ function sendMessage() {
     timerEl.textContent = "Game Over";
 };
 
-function start() {
+function timer() {
 
     var timerInterval = setInterval(function () {
         secondsLeft--;
@@ -27,6 +40,8 @@ function start() {
         }
     }, 1000);
 };
+
+
 
 var questionsList = [
     {
@@ -44,19 +59,18 @@ var questionsList = [
         choices: ["Done On Monday", "Document Object Module", "Data Over Method", "Delete Over Mode"],
         correctAnswer: "Document Object Module",
     },
+    {
+        questionText: "When did JavaScript first appear?",
+        choices: ["2000", "2005", "1995", "2008"],
+        correctAnswer: "1995",
+    },
+    {
+        questionText: "What HTML tag is not included in the HEAD tag?",
+        choices: ["link", "meta", "title", "header"],
+        correctAnswer: "header",
+    },
 ];
 
-var questionsTextElement = document.getElementById("question-text");
-var choicesContainerElement = document.getElementById("choices-container");
 
-function main() {
-    questionsTextElement.textContent = questionsList[0].questionText;
 
-    for (var i = 0; i < questionsList[0].choices.length; i++) {
-        var newChoiceButton = document.createElement("button");
-        newChoiceButton.textContent = questionsList[0].choices[i];
-        choicesContainerElement.append(newChoiceButton);
-    }
-    console.log("This is my example");
-};
 
