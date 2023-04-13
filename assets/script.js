@@ -1,9 +1,22 @@
 
-var timerEl = document.querySelector("#timer");
+document.querySelector("#gameStart");
+document.addEventListener("click", function () {
+    document.body.style.backgroundColor = "yellow";
+    const element = document.getElementById("containerFirst");
+    element.remove();
+    start();
+    main();
+});
 
+var timerEl = document.querySelector("#timer");
 var secondsLeft = 10;
 
-function setTime() {
+function sendMessage() {
+    timerEl.textContent = "Game Over";
+};
+
+function start() {
+
     var timerInterval = setInterval(function () {
         secondsLeft--;
         timerEl.textContent = secondsLeft + " second(s) left";
@@ -13,29 +26,23 @@ function setTime() {
             sendMessage();
         }
     }, 1000);
-}
-
-function sendMessage() {
-    timerEl.textContent = "Game Over";
-}
-
-setTime();
+};
 
 var questionsList = [
     {
-        questionText: "how do I declare a variable in JavaScript",
-        choices: ["var", "for", "while", "if"],
-        correctAnswer: "var",
+        questionText: "How do you declare a variable in JavaScript?",
+        choices: ["Use 'var'", "Use 'for'", "Use 'while'", "Use 'if'"],
+        correctAnswer: "Use 'var'",
     },
     {
-        questionText: "how do I declare a variable in JavaScript",
-        choices: ["var", "for", "while", "if"],
-        correctAnswer: "var",
+        questionText: "Arrays in JavaScript can be used to store _________.",
+        choices: ["numbers", "booleans", "strings", "all of the above"],
+        correctAnswer: "all of the above",
     },
     {
-        questionText: "how do I declare a variable in JavaScript",
-        choices: ["var", "for", "while", "if"],
-        correctAnswer: "var",
+        questionText: "What does DOM stand for?",
+        choices: ["Done On Monday", "Document Object Module", "Data Over Method", "Delete Over Mode"],
+        correctAnswer: "Document Object Module",
     },
 ];
 
@@ -51,6 +58,5 @@ function main() {
         choicesContainerElement.append(newChoiceButton);
     }
     console.log("This is my example");
-}
+};
 
-main();

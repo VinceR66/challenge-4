@@ -8,6 +8,7 @@ header {
     width: 75%;
     margin: auto;
     padding-top: 25px;
+    padding-bottom: 50px;
 }
 
 #timer {
@@ -24,19 +25,32 @@ header {
     margin-right: 25%;
 }
 
+#containerFirst {
+    background-color: orange;
+
+}
+
+
 #containerHigh {
     text-align: left;
 }
 
 #question-text {
-    text-align: center;
-    font-size: 24px;
+
+    font-size: 18px;
     color: blue;
 }
 
-#choices-container {
+#choices-container button {
+    margin: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     text-align: center;
-    padding: 20px;
+}
 
 
+#container-question {
+    width: 100%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
