@@ -1,47 +1,7 @@
 
 var startGame = document.querySelector("#gameStart");
 startGame.addEventListener('click', start)
-
-function start() {
-    document.getElementById("containerStart").classList.add("hide");
-    document.getElementById("containerStart").classList.remove("show");
-    document.getElementById("containerQuestion").classList.remove("hide");
-    document.getElementById("containerQuestion").classList.add("show");
-    questionsShuffled = questionsList.sort(() => Math.random() - .05)
-
-
-    timer()
-}
-
-var questionsShuffled
-
-function questionSelect() {
-    answerReset()
-    questionDisplay(questionsList[QuestionIndex])
-
-}
-
-var timerEl = document.querySelector("#timer");
-var secondsLeft = 10;
-
-function sendMessage() {
-    timerEl.textContent = "Game Over";
-};
-
-function timer() {
-
-    var timerInterval = setInterval(function () {
-        secondsLeft--;
-        timerEl.textContent = secondsLeft + " second(s) left";
-
-        if (secondsLeft === 0) {
-            clearInterval(timerInterval);
-            sendMessage();
-        }
-    }, 1000);
-};
-
-
+var score = 0
 
 var questionsList = [
     {
@@ -70,6 +30,158 @@ var questionsList = [
         correctAnswer: "header",
     },
 ];
+
+
+function start() {
+    document.getElementById("containerStart").classList.add("hide");
+    document.getElementById("containerStart").classList.remove("show");
+    document.getElementById("containerQuestion").classList.remove("hide");
+    document.getElementById("containerQuestion").classList.add("show");
+    timer()
+    main()
+}
+
+var questionsTextElement = document.getElementById("question");
+var choicesContainerElement = document.getElementById("buttonAnswers");
+var k = 0;
+
+function main() {
+
+    questionsTextElement.textContent = questionsList[k].questionText;
+
+    for (var i = 0; i < questionsList[k].choices.length; i++) {
+        var newChoiceButton = document.createElement("button");
+        newChoiceButton.textContent = questionsList[k].choices[i];
+        choicesContainerElement.append(newChoiceButton);
+        newChoiceButton.addEventListener('click', checkAnswer);
+    }
+    k = k + 1;
+    console.log("This is my example");
+    console.log(k)
+}
+
+
+var checkAnswer = function (e) {
+    e.preventDefault();
+    console.log(questionsList[k - 1].correctAnswer);
+    var selectedAnswer = e.target
+    if (questionsList[k - 1].correctAnswer === selectedAnswer.innerText) {
+        score = score + 10;
+        console.log(score);
+        correctAnswer();
+    }
+    else {
+        score = score - 3;
+        secondsLeft = secondsLeft - 5;
+        console.log(score);
+        console.log(secondsLeft);
+        wrongAnswer()
+    };
+}
+
+var correctEl = document.getElementById("correct");
+var wrongEl = document.getElementById("wrong");
+
+function correctAnswer() {
+    console.log("hello");
+    if (correctEl.className = "hide") {
+        correctEl.classList.remove("hide")
+        correctEl.classList.add("banner")
+        wrongEl.classList.remove("banner")
+        wrongEl.classList.add("hide")
+    }
+    newQuestion();
+};
+
+function wrongAnswer() {
+    if (wrongEl.className = "hide") {
+        wrongEl.classList.remove("hide")
+        wrongEl.classList.add("banner")
+        correctEl.classList.remove("banner")
+        correctEl.classList.add("hide")
+    }
+    newQuestion()
+}
+
+
+function newQuestion() {
+    answerReset();
+}
+
+
+function answerReset() {
+    while (choicesContainerElement.firstChild) {
+        choicesContainerElement.removeChild(choicesContainerElement.firstChild)
+    }
+    main();
+}
+
+var timerEl = document.querySelector("#timer");
+var secondsLeft = 10;
+
+function sendMessage() {
+    timerEl.textContent = "Game Over";
+};
+
+function timer() {
+
+    var timerInterval = setInterval(function () {
+        secondsLeft--;
+        timerEl.textContent = secondsLeft + " second(s) left";
+
+        if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+            sendMessage();
+        }
+    }, 1000);
+};
+
+
+
+
+/*function showScore() {
+    <h1>Game Over</h1>;
+}*/
+
+
+
+/*var questionIndex = 0
+
+function questionSelect() {
+    answerReset()
+    questionDisplay(questionsList[questionIndex])
+
+}
+
+var buttonAnswers = (document.getElementById("buttonAnswers");
+
+function answerReset() {
+    while (buttonAnswers.firstChild) {
+        buttonAnswers.removeChild(buttonAnswers.firstChild)
+    };
+};
+
+var questionEl = document.getElementById("question");
+var answerButtonEl = document.getElementById("buttonAnswers");
+
+function newQuestion() {
+    questionEl.innerText = index.questionText
+    for (var i = 0; i < index.choices.length; i++) {
+        var answerButton = document.createElement('button');
+        answerButton.innerText = index.choices[i].choice
+        answerButton.classList.add("btn")
+        answerButton.classList.add("answerbtn")
+        answerButton.addEventListener("click", answerCheck)
+        answerButtonEl.appendChild(answerButton)
+    }
+};
+*/
+
+
+
+
+
+
 
 
 
