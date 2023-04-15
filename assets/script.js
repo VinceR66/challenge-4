@@ -142,23 +142,42 @@ function answerReset() {
 }
 
 function endScore() {
-    document.getElementById("containerStart").classList.add("hide");
+    document.getElementById("containerQuestion").classList.remove("show");
+    document.getElementById("containerQuestion").classList.add("hide");
     document.getElementById("containerEnd").classList.remove("hide");
     document.getElementById("containerEnd").classList.add("show");
-    if (wrongEl.className = "show") {
+    //new code
+    /*if (correctEl.className = "show") {
+        console.log('RIGHT')
+        //correctEl.classList.add("hide")
+        correctEl.classList.remove("banner")
+        correctEl.classList.add("hide")
+    } else if (wrongEl.className = "show") {
+        console.log('WRONG')
+        //wrongEl.classList.remove("show")
         wrongEl.classList.remove("banner")
         wrongEl.classList.add("hide")
-    } else {
-        if (correctEl.classList = "show") {
-            correctEl.classList.remove("banner")
-            correctEl.classList.add("hide")
 
-        }
-    }
+    }*/
+
     var showScore = document.createElement("p");
     showScore.innerText = ('Final Score:  ' + score);
     containerEnd.appendChild(showScore);
 };
+
+var initialsInput = document.getElementById("initialsForm");
+initialsInput.addEventListener("submit", highScore);
+
+function highScore(e) {
+    e.preventDefault();
+    var initials = document.querySelector("#initials").value;
+    if (!initials) {
+        console.log('highScore')
+        alert("Enter your initials");
+        return;
+    }
+
+}
 
 var timerEl = document.querySelector("#timer");
 var secondsLeft = 10;
