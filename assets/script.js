@@ -38,12 +38,31 @@ function start() {
     document.getElementById("containerQuestion").classList.remove("hide");
     document.getElementById("containerQuestion").classList.add("show");
     timer()
-    main()
+    // main()
+    // new code
+    jack();
+
 }
+//new code
+console.log(questionsList.length, 'total number of questions');
 
 var questionsTextElement = document.getElementById("question");
 var choicesContainerElement = document.getElementById("buttonAnswers");
 var k = 0;
+//new code
+var t = 0
+function jack() {
+    if (t < questionsList.length) {
+        t++;
+        console.log(t, 'value of t');
+        main();
+    } else {
+        console.log('finished');
+        endScore();
+    }
+}
+
+
 
 function main() {
 
@@ -56,8 +75,8 @@ function main() {
         newChoiceButton.addEventListener('click', checkAnswer);
     }
     k = k + 1;
-    console.log("This is my example");
-    console.log(k)
+    console.log("main...added question and answers");
+    console.log(k, 'value of k');
 }
 
 
@@ -67,14 +86,14 @@ var checkAnswer = function (e) {
     var selectedAnswer = e.target
     if (questionsList[k - 1].correctAnswer === selectedAnswer.innerText) {
         score = score + 10;
-        console.log(score);
+        console.log(score, 'score');
         correctAnswer();
     }
     else {
         score = score - 3;
         secondsLeft = secondsLeft - 5;
         console.log(score);
-        console.log(secondsLeft);
+        console.log(secondsLeft, 'time left');
         wrongAnswer()
     };
 }
@@ -83,7 +102,7 @@ var correctEl = document.getElementById("correct");
 var wrongEl = document.getElementById("wrong");
 
 function correctAnswer() {
-    console.log("hello");
+    console.log("correct answer");
     if (correctEl.className = "hide") {
         correctEl.classList.remove("hide")
         correctEl.classList.add("banner")
@@ -94,6 +113,7 @@ function correctAnswer() {
 };
 
 function wrongAnswer() {
+    console.log('wrong answer');
     if (wrongEl.className = "hide") {
         wrongEl.classList.remove("hide")
         wrongEl.classList.add("banner")
@@ -105,6 +125,7 @@ function wrongAnswer() {
 
 
 function newQuestion() {
+    console.log('new question');
     answerReset();
 }
 
@@ -113,8 +134,31 @@ function answerReset() {
     while (choicesContainerElement.firstChild) {
         choicesContainerElement.removeChild(choicesContainerElement.firstChild)
     }
-    main();
+    console.log('answer reset');
+    //main();
+    //new code
+    jack();
+
 }
+
+function endScore() {
+    document.getElementById("containerStart").classList.add("hide");
+    document.getElementById("containerEnd").classList.remove("hide");
+    document.getElementById("containerEnd").classList.add("show");
+    if (wrongEl.className = "show") {
+        wrongEl.classList.remove("banner")
+        wrongEl.classList.add("hide")
+    } else {
+        if (correctEl.classList = "show") {
+            correctEl.classList.remove("banner")
+            correctEl.classList.add("hide")
+
+        }
+    }
+    var showScore = document.createElement("p");
+    showScore.innerText = ('Final Score:  ' + score);
+    containerEnd.appendChild(showScore);
+};
 
 var timerEl = document.querySelector("#timer");
 var secondsLeft = 10;
