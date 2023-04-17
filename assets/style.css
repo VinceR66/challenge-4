@@ -11,6 +11,10 @@ header {
     padding-bottom: 50px;
 }
 
+.start p {
+    font-size: 24px;
+}
+
 #timer {
     color: blue;
 }
@@ -30,22 +34,36 @@ header {
     margin-right: 25%;
 }
 
-#containerQuestion {
+.container {
+    padding: 20px;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+}
+
+.question {
+    font-size: 30px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 40px 20px;
+    margin: auto;
+}
+
+#buttonAnswers {
     width: 100%;
-    margin-left: 25%;
-    margin-right: 25%;
 }
 
-#question {
+button {
+    font-size: 24px;
+    margin-top: 20px;
+}
 
+.banner {
     font-size: 18px;
-    color: blue;
-}
-
-
-/* #containerEnd  here */
-
-#containerHighScore {
+    padding: 20px;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
     text-align: left;
 }
 
@@ -56,16 +74,3 @@ header {
 .hide {
     display: none;
 }
-
-
-
-
-
-/*
-#choices-container button {
-    margin: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-    text-align: center;
-}
-*/

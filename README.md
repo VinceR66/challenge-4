@@ -3,9 +3,11 @@ Assignment Objective : create coding quiz with a number of questions, a timer an
 _________________________________________________
 ### Website -- https etc
 
-### Status -- Not Complete
+### Status -- Partial
 
 #### ScreenShots: 
+
+
 
 ### Code Used: HTML, CSS and JavaScript
 

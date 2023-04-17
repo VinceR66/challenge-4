@@ -60,8 +60,7 @@ function jack() {
         t++
         console.log('finished');
         endScore();
-        //added
-        //let t = 0;
+
     }
 }
 
@@ -144,7 +143,6 @@ function answerReset() {
 }
 
 function endScore() {
-    //document.getElementById("containerQuestion").classList.remove("show");
     document.getElementById("containerQuestion").classList.add("hide");
     document.getElementById("containerEnd").classList.remove("hide");
     document.getElementById("containerEnd").classList.add("show");
@@ -160,13 +158,13 @@ initialsInput.addEventListener("submit", highScore);
 function highScore(e) {
     e.preventDefault();
     var initials = document.querySelector("#initials").value;
-    //localStorage.setItem("initials", JSON.stringify("initials"));
+
     if (!initials) {
         console.log('highScore')
         alert("Enter your initials");
         return;
     }
-    //may not need to call yet - possibly after high score (li) list
+
     highScoreList();
     saveHighScore();
 }
